@@ -3,18 +3,54 @@ import { StyleSheet} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import {DrawerDefaultNavigator} from './Navigators/DrawerDefaultNavigator';
 import {DrawerCustomNavigator} from './Navigators/DrawerCustomNavigator.js';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { DrawerItem, DrawerContentScrollView } from '@react-navigation/drawer';
+import {DrawerContentScreen} from "./Screens/DrawerContentScreen";
+
+import {LoginScreen} from './Screens/LoginScreen.js';
+import {HomeScreen} from "./Screens/HomeScreen.js";
+import {BuscarCerveceria} from "./Screens/BuscarCerveceria.js";
+
+
+const Drawer = createDrawerNavigator();
 
 export default class App extends Component {
+ 
   
+  constructor(props){
+    super(props);
+    this.state = {estaLogeado:false}
+}
+
+setStateLogin(){
+  this.setState({estaLogeado:true});
+}
+
+setStateLogout= () =>{
+  this.setState({estaLogeado:false});
+}
+
+
+
   render(){
-    return (
+    if(this.state.estaLogeado != true){
+      return(
+        <LoginScreen onLogin={() => this.setStateLogin()}   />
 
+      );
+    }else{
+      return (
+     
       <NavigationContainer>
-        {/*<DrawerDefaultNavigator />*/}
-        <DrawerCustomNavigator />
+         <DrawerCustomNavigator onLogout={this.setStateLogout}/>
       </NavigationContainer>
+      
+      );
+    
 
-    );
+    }
+    
+   
   }
 
 }
