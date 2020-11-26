@@ -14,7 +14,7 @@ import {BuscarCerveceria} from "./Screens/BuscarCerveceria.js";
 
 const Drawer = createDrawerNavigator();
 
-export default class App extends Component {
+export class App extends Component {
  
   
   constructor(props){

@@ -4,7 +4,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 
 // Screens
 import {HomeScreen} from "../Screens/HomeScreen";
-import {InfoScreen} from "../Screens/InfoScreen";
+
 
 const Drawer = createDrawerNavigator();
 
