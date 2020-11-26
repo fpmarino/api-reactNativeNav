@@ -4,7 +4,7 @@ import { StyleSheet, Text, TextInput, ScrollView, TouchableOpacity, View } from 
 const axios = require("axios");
 
  
-export default class App extends Component {
+export class BuscarCerveceria extends Component {
   state = {
 
     response: [],
@@ -67,33 +67,6 @@ export default class App extends Component {
           </ScrollView>
           <StatusBar style="auto" />
           
-        </View>             
-      );  
-    }else if (this.state.estado == true)
-    {
-      const {style} = this.props;
-   
-      return (
-        <View style={styles.container}>
-
-        <Text style={styles.text}>Econtrá tu cervecería</Text>
-        <TextInput style={styles.input}  onChangeText = {this.handlerText.bind(this)}></TextInput> 
-        <TouchableOpacity
-        style={styles.button}
-        onPress={this.handlerButton.bind(this)}>
-        <Text>Enviar</Text>
-        </TouchableOpacity>
-        
-          <ScrollView style={styles.scrollView}>
-          <Text style={styles.text}>Nombre: {this.state.response.name}</Text>          
-          <Text style={styles.text}>Tipo de cerveceria: {this.state.response.brewery_type}</Text>
-          <Text style={styles.text}>Direccion: {this.state.response.street}</Text>
-          <Text style={styles.text}>Ciudad: {this.state.response.city}</Text>          
-          <Text style={styles.text}>Pais: {this.state.response.country}</Text>
-          <Text style={styles.text}>Telefono: {this.state.response.phone}</Text>
-          <Text style={styles.text}>Pagina Web: {this.state.response.website_url}</Text>
-          </ScrollView>
-          <StatusBar style="auto" />
         </View>             
       );  
     }
